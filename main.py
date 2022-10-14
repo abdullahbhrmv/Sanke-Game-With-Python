@@ -46,22 +46,22 @@ def game():                            # game function
     snake_list = []                    # list of snake
     snake_length = 1                   # length of the snake
 
-    while not game_over:                          # game loop
+    while not game_over:                                         # game loop
         while game_close:                                   # game close loop
-            screen.fill(white)                    # fill the screen with white color
+            screen.fill(white)                                      # fill the screen with white color
             message("You Lost! Press C-Play Again or Q-Quit", red)        # display the message
-            pygame.display.update()                 # update the screen
+            pygame.display.update()                                             # update the screen
 
             for event in pygame.event.get():                # event loop
                 if event.type == pygame.QUIT:                     # if user clicks on the close button
                     game_over = True                                    # set game over flag to true
 
                 if event.type == pygame.KEYDOWN:                   # if user presses a key
-                    if event.key == pygame.K_q:                        # if user presses left arrow key
+                    if event.key == pygame.K_q:                        # if user presses q arrow key
                         game_over = True                                    # set game over flag to true
                         game_close = False                                  # set game close flag to false
 
-                    elif event.key == pygame.K_c:              # if user presses right arrow key
+                    elif event.key == pygame.K_c:              # if user presses c arrow key
                         game()                                          # call the game function
 
 
