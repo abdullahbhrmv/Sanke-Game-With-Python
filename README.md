@@ -12,4 +12,4 @@ This is a simple snake game made with python and pygame.
 
 - Install python 3.8.5
 - Install pygame              (pip install pygame)
-- Run the game with `python main.py`
+- Run the game with `main.py`

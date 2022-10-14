@@ -21,6 +21,11 @@ clock = pygame.time.Clock()         # create a clock
 snake_line = 20
 snake_speed = 10
 
+def our_score(score):                           # score function  
+    font_style = pygame.font.SysFont("bahnschrift", 25)       # set the font style and size
+    value = font_style.render("Your Score: " + str(score), True, black)               # render the score
+    screen.blit(value, [0,0])                        # display the score
+
 def our_snake(snake_list):
     for x in snake_list:
         pygame.draw.rect(screen, black, [x[0], x[1], snake_line, snake_line])
@@ -47,9 +52,11 @@ def game():                            # game function
     snake_length = 1                   # length of the snake
 
     while not game_over:                                         # game loop
+        
         while game_close:                                   # game close loop
             screen.fill(white)                                      # fill the screen with white color
             message("You Lost! Press C-Play Again or Q-Quit", red)        # display the message
+            our_score(snake_length - 1)                                   # display the score
             pygame.display.update()                                             # update the screen
 
             for event in pygame.event.get():                # event loop
@@ -100,7 +107,8 @@ def game():                            # game function
         if len(snake_list) > snake_length:                                     # if length of the snake list is greater than snake length
             del snake_list[0]                                                       # delete the first element of the list
         
-        our_snake(snake_list)
+        our_snake(snake_list)                            # call the our_snake function
+        our_score(snake_length - 1)                            # display the score
 
         pygame.display.update()                                                                 # update the screen
         
